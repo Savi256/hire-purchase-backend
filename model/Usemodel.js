@@ -19,4 +19,6 @@ const structure=new mongoose.Schema({
 })
 const Usemodel= mongoose.model('SAVI',structure)
 
-module.exports=Usemodel 
+
+
+module.exports=Usemodel
