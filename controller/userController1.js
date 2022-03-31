@@ -52,6 +52,7 @@ exports.updateuser =async(req,res)=>{
 exports.deleteuser =async(req,res)=>{
     try {
         const id=req.query.id
+        
         const user=await proposal.findByIdAndDelete(id)  
 
         res.json({status:200,user})

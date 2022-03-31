@@ -61,6 +61,6 @@ const structure1=new mongoose.Schema(
     }
 }
 )
-const proposal=mongoose.model('proposal with existing products',structure1)
+const proposal= mongoose.model('proposal with existing products',structure1)
 
 module.exports=proposal 

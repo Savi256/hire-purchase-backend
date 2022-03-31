@@ -28,7 +28,7 @@ exports.createUser2=(req,res)=>{
 exports.finduser =async(req,res)=>{
     try {
         const id=req.query.id
-        const NewUser=await proposal.findById(id)
+        const NewUser=await proposalNotListed.findById(id)
 
         res.json({status:200,NewUser})
         
@@ -39,7 +39,7 @@ exports.finduser =async(req,res)=>{
 exports.updateuser =async(req,res)=>{
     try {
         const id=req.query.id
-        const updateUser=await proposal.findByIdAndUpdate(id,req.body,{useFindAndModify:false})  
+        const updateUser=await proposalNotListed.findByIdAndUpdate(id,req.body,{useFindAndModify:false})  
 
         res.json({status:200,user:updateUser})
         
@@ -51,7 +51,7 @@ exports.updateuser =async(req,res)=>{
 exports.deleteuser =async(req,res)=>{
     try {
         const id=req.query.id
-        const user=await proposal.findByIdAndDelete(id)  
+        const user=await proposalNotListed.findByIdAndDelete(id)  
 
         res.json({status:200,user})
         

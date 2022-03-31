@@ -57,6 +57,6 @@ const structure2=new mongoose.Schema({
 
 })
 
-const proposalNotListed= new mongoose.model('proposal not listed in the platform',structure2)
+const proposalNotListed=  mongoose.model('proposal not listed in the platform',structure2)
 
 module.exports=proposalNotListed
