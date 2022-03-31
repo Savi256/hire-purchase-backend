@@ -4,26 +4,31 @@ const {validation}=require('../auth/auth')
 const {employeeAuth}=require('../auth/employeeAuths')
 
 
-const userController=require('../controller/userController')
-const userController1=require('../controller/userController1')
-const userController2=require('../controller/userController2')
 const userController3=require('../controller/userController3')
+const userController = require('../controller/userController');
+const customProposalController = require('../controller/customProposalController');
+const existingProposalController = require('../controller/existingProposalController');
+
+//Note: the post method takes two parameter name of the path and callbackfunc from userModel mode;
+router.post('/create-user',userController.createUser);
+router.get('/get-user',userController.findUser);
+router.put('/update-user',userController.updateUser);
+router.delete('/delete-user',userController.deleteUser);
 
 
-router.post('/create-user',userController.createUser)
-router.get('/get-user',userController.finduser)
-router.put('/update-user',userController.updateuser)
-router.delete('/delete-user',userController.deleteuser)
+//Routes for customPropsoal
+router.post('/create-custom-proposal',customProposalController.createCustomProposal);
+router.get('/get-custom-proposal',customProposalController.findCustomProposal);
+router.put('/update-custom-proposal',customProposalController.updateCustomProposal);
+router.delete('/delete-custom-proposal',customProposalController.deleteCustomProposal);
 
-router.post('/create-productslisted',userController1.createUser1)
-router.get('/get-productslisted', userController1.finduser)
-router.put('/update-productslisted', userController1.updateuser)
-router.delete('/delete-productslisted', userController1.deleteuser)
 
-router.post('/create-productsNotListed',userController2.createUser2)
-router.get('/get-productsNotListed',userController2.finduser)
-router.put('/update-productsNotListed',userController2.updateuser)
-router.delete('/delete-productsNotListed',userController2.deleteuser)
+
+//Routes for existingProposal
+router.post('/create-existing-proposal',existingProposalController.createExistingProposal);
+router.get('/get-existing-proposal',existingProposalController.findExistingProposal);
+router.put('/update-existing-proposal',existingProposalController.updateExistingProposal);
+router.delete('/delete-existing-proposal',existingProposalController.deleteExistingProposal);
 
 router.post('/create-userEmployee',userController3.createUserEmployee)
 router.get('/get-userEmployee',validation,userController3.finduserEmployee)
@@ -31,5 +36,4 @@ router.put('/update-userEmployee',validation,employeeAuth,userController3.update
 
 
 
-
-module.exports=router
+module.exports = router;
