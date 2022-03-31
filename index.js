@@ -1,8 +1,15 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const connectDB = require("./database/connection");
+const mongoose=require('mongoose')
+// const bodyParser= require('body-parser')
 
-const app = express();
+const app=express()
+app.use(cookies())
+
+
+dotenv.config({path:'config.env'})
+
 
 dotenv.config({path:'.env'})
 connectDB();
