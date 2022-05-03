@@ -4,7 +4,7 @@ const {validation}=require('../auth/auth')
 const {employeeAuth}=require('../auth/employeeAuths')
 
 
-const userController3=require('../controller/userController3')
+const employeeController=require('../controller/employeeController')
 const userController = require('../controller/userController');
 const customProposalController = require('../controller/customProposalController');
 const existingProposalController = require('../controller/existingProposalController');
@@ -30,9 +30,9 @@ router.get('/get-existing-proposal',existingProposalController.findExistingPropo
 router.put('/update-existing-proposal',existingProposalController.updateExistingProposal);
 router.delete('/delete-existing-proposal',existingProposalController.deleteExistingProposal);
 
-router.post('/create-userEmployee',userController3.createUserEmployee)
-router.get('/get-userEmployee',validation,userController3.finduserEmployee)
-router.put('/update-userEmployee',validation,employeeAuth,userController3.updateuserEmployee)
+router.post('/create-userEmployee',employeeController.createUserEmployee)
+router.get('/get-userEmployee',validation,employeeController.finduserEmployee)
+router.put('/update-userEmployee',validation,employeeAuth,employeeController.updateuserEmployee)
 
 
 

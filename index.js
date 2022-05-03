@@ -2,6 +2,7 @@ const express = require('express');
 const dotenv = require('dotenv');
 const connectDB = require("./database/connection");
 const mongoose=require('mongoose')
+const cookies=require('cookie-parser')
 // const bodyParser= require('body-parser')
 
 const app=express()
