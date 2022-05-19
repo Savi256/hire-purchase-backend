@@ -7,6 +7,7 @@ const cors = require('cors')
 // const bodyParser= require('body-parser')
 
 const app=express()
+console.log(app)
 app.use(cookies())
 
 
@@ -25,7 +26,7 @@ app.use(
     })
 )
 
-const port = process.env.port ||  4000;
+const port = process.env.PORT ||  4000;
 app.use('/',require('./router/routes'));
 
 
