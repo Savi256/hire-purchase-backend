@@ -20,7 +20,7 @@ exports.createUser = async(req,res) => {
 		
 		const token = sign({email:user.email},process.env.SECRET,{expiresIn: 7200});
 		
-
+console.log(user)
 		 res.json({
 			status:200,
 			user,
@@ -29,9 +29,10 @@ exports.createUser = async(req,res) => {
 	return
 		
 	}
+	
  }catch(error){
  	res.json(error.message)
-
+return
  }
 }
 
@@ -72,6 +73,7 @@ exports.updateUser = async(req,res) => {
 			status:200,
 			user:updateUser
 		})
+		return
 		/*the findByIdUpdate method has two arg  
 		one: the id of the doc to be updated and 
 		second: the actual data we are updating the document with*/
@@ -89,6 +91,7 @@ exports.deleteUser = async(req,res) => {
     	status:200,
     	user:deleteUser
     })
+	return
 	}catch(error){
     res.json(error.message)
 	}

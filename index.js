@@ -3,9 +3,11 @@ const dotenv = require('dotenv');
 const connectDB = require("./database/connection");
 const mongoose=require('mongoose')
 const cookies=require('cookie-parser')
+const cors = require('cors')
 // const bodyParser= require('body-parser')
 
 const app=express()
+console.log(app)
 app.use(cookies())
 
 
@@ -18,8 +20,13 @@ connectDB();
 //because we can't access the body in the postman we use the middleware below
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
+app.use(
+    cors({
+        origin:"https:hire-purchase-frontend.vercel.app"
+    })
+)
 
-const port = process.env.port ||  4000;
+const port = process.env.PORT ||  4000;
 app.use('/',require('./router/routes'));
 
 

@@ -22,6 +22,7 @@ exports.createCustomProposal = (req,res) => {
   	status:200,
   	customProposal
   });
+  return
  }catch(error){
  	res.json(error.message)
  }
@@ -36,6 +37,7 @@ res.json({
 	status:200,
 	customProposal
 })
+return
 }catch(error){
 	res.json({
 		status:500,
@@ -53,6 +55,7 @@ exports.updateCustomProposal = async(req,res) => {
 			status:200,
 			customProposal:updateCustomProposal
 		})
+		return
 		/*the findByIdUpdate method has two arg  
 		one: the id of the doc to be updated and 
 		second: the actual data we are updating the document with*/
@@ -70,6 +73,7 @@ exports.deleteCustomProposal = async(req,res) => {
     	status:200,
     	customProposal:deleteCustomProposal
     })
+	return
 	}catch(error){
     res.json(error.message)
 	}

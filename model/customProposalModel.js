@@ -1,82 +1,66 @@
-const mongoose  = require('mongoose')
+const mongoose=require('mongoose')
+const structure1=new mongoose.Schema(
+    {
+        fullname:{
+            type: String,
+            required:true
+        }, 
+        email:{
+            type:String,
+            required:true,
+            unique:true
+        },
+        gender:{
+            type:String,
+            required:true
+        },
+        address:{
+            type:String,
+            required:true
 
-const customProposal = new mongoose.Schema({
-    fullName:{
-      first:String,
-      last:String
-    },
-    email:{
-    type:String,
-    required:true,
-    unique:true
-   },
-   gender:String,
-   address:{
-    type:String,
-    lowercase:true,
-    required:true
-   },
-   dateOfBirth:{
-    type:Date,
-    required:true,
-    unique:true
-   },
-   stateOfOrigin:String,
-   bvn:{
-    type:String,
-    required:true,
-    unique:true
-   },
-   NIN:{
-    type:Number,
-    required:true,
-    unique:true
-   },
-   photo:String,
-   guarantorDetails:{
-    name:{
-      type:String,
-      required:true
-    },
-    phoneNumber:{
-      type:Number,
-      required:true
-    },
-    address:{
-      type:String,
-      required:true,
-      unique:true
-    },
-    email:{
-      type:String,
-      required:true,
-      unique:true
-    }
-   },
-   product:{
-    name:{
-      type:String,
-      required:true
-    },
-    price:String,
-    term :{
-      type:String,
-      required:true
-    },
-    type:{
-      type:String,
-    },
-    numberOfProduct:{
-      type:Number,
-      required:true
-    },
-    category:{
-      type:String,
-      required:true
-    }
-  }
-}) ;
+        },
+        dateOfBirth:{
+            type:Date,
+            required:true,
+            
+        },
+        stateOfOrigin:{
+            type:String,
+            required:true
 
-//creacting a model and exporting it
-const customProposalModel = mongoose.model('customProposalModel',customProposal);
-module.exports = customProposalModel;
+        },
+        BVN:{
+            type:Number,
+            required:true,
+            unique:true
+        },
+        
+        NIN:{
+            type:Number,
+            required:true,
+            unique:true
+        },
+        photo:{
+            type:String,
+            required:true,
+            unique:true
+        }
+        ,
+        guarantorDetails:{
+         guarantorName:{type:String,required:true},
+         phoneNumber:{type:Number,required:true,unique:true},
+         address:{type:String,required:true},
+         email:{type:String,required:true,unique:true}  
+    },
+    Product:{
+        ProductName:{type:String, required:true},
+        ProductPrice:{type:String,required:true},
+        applicationTerm:{type:String,required:true},      
+        applicationType:{type:String,required:true},
+        numberOfProducts:{type:Number}
+    }
+}
+)
+const proposal= mongoose.model('proposal with existing products',structure1)
+
+module.exports=proposal 
