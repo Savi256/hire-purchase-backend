@@ -21,6 +21,7 @@ exports.createExistingProposal = (req,res) => {
   	status:200,
   	existingProposal
   });
+  return
  }catch(error){
  	res.json(error.message)
  }
@@ -34,7 +35,9 @@ const existingProposal = await existingProposalModel.findById(id);
 res.json({
 	status:200,
 	existingProposal
+
 })
+return
 }catch(error){
 	res.json({
 		status:500,
@@ -52,6 +55,7 @@ exports.updateExistingProposal = async(req,res) => {
 			status:200,
 			existingProposal:updateExistingProposal
 		})
+		return
 		/*the findByIdUpdate method has two arg  
 		one: the id of the doc to be updated and 
 		second: the actual data we are updating the document with*/
@@ -69,6 +73,7 @@ exports.deleteExistingProposal = async(req,res) => {
     	status:200,
     	existingProposal:deleteExistingProposal
     })
+	return
 	}catch(error){
     res.json(error.message)
 	}

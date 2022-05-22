@@ -20,6 +20,7 @@ exports.createUserEmployee= (req,res)=>{
         newUserEmployee.save(newUserEmployee)
        console.log(newUserEmployee)
         res.json({status:200,newUserEmployee})
+        return
     }
     catch(error){ 
         console.log(error.message)
@@ -61,7 +62,7 @@ exports.finduserEmployee =async(req,res)=>{
         const NewUser=await employee.findById(id)
 
         res.json({status:200,NewUser})
-        
+        return
     } catch (error) {
         res.json({status:200,message:error})
     }
@@ -72,7 +73,7 @@ exports.updateuserEmployee =async(req,res)=>{
         const updateUser=await employee.findByIdAndUpdate(id,req.body,{useFindAndModify:false})  
 
         res.json({status:200,user:updateUser})
-        
+        return
     } 
     catch (error) {
         res.json(error.message)
