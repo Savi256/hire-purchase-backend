@@ -9,12 +9,13 @@ const userController = require('../controller/userController');
 const customProposalController = require('../controller/customProposalController');
 const existingProposalController = require('../controller/existingProposalController');
 
+
 //Note: the post method takes two parameter name of the path and callbackfunc from userModel mode;
 router.post('/create-user',userController.createUser);
 router.get('/get-user',userController.findUser);
 router.put('/update-user',userController.updateUser);
 router.delete('/delete-user',userController.deleteUser);
-
+router.post('/verify-email',userController.verifyEmail)
 
 //Routes for customPropsoal
 router.post('/create-custom-proposal',customProposalController.createCustomProposal);

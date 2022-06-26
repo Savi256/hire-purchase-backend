@@ -1,8 +1,10 @@
 //controller file is responsible for performing operation
 const customProposalModel = require('../model/customProposalModel');
+const customemail =require('../email/customemail')
+// const nodemailer = require("nodemailer");
 
 //To Post do this:
-exports.createCustomProposal = (req,res) => {
+exports.createCustomProposal = async (req,res) => {
  try{
   const customProposal = new customProposalModel({
   	fullName:req.body.fullName,
@@ -18,6 +20,7 @@ exports.createCustomProposal = (req,res) => {
   	product:req.body.product	
   })
   customProposal.save(customProposal);
+  await customemail(customProposal.email)
   res.json({
   	status:200,
   	customProposal
